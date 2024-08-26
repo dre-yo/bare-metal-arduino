@@ -8,16 +8,14 @@ int main(void) {
   DDRB = 32;
 
   while (1) {
-    volatile byte *portB = 0x25;
-
-    *portB = 32;
+    *((volatile byte *)0x25) = 32;
     for (long i = 0; i < 2000000; i++) {
-      *portB = 32;
+      *((volatile byte *)0x25) = 32;
     }
 
-    *portB = 0;
+    *((volatile byte *)0x25) = 0;
     for (long i = 0; i < 1000000; i++) {
-      *portB = 0;
+      *((volatile byte *)0x25) = 0;
     }
   }
 }
