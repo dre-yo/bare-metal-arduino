@@ -4,18 +4,20 @@
 
 typedef uint8_t byte;
 
+#define MYPORTB *((volatile byte *)0x25)
+
 int main(void) {
   DDRB = 32;
 
   while (1) {
-    *((volatile byte *)0x25) = 32;
-    for (long i = 0; i < 2000000; i++) {
-      *((volatile byte *)0x25) = 32;
+    MYPORTB = 32;
+    for (long i = 0; i < 3000000; i++) {
+      MYPORTB = 32;
     }
 
-    *((volatile byte *)0x25) = 0;
+    MYPORTB = 0;
     for (long i = 0; i < 1000000; i++) {
-      *((volatile byte *)0x25) = 0;
+      MYPORTB = 0;
     }
   }
 }
