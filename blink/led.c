@@ -5,9 +5,10 @@
 typedef uint8_t byte;
 
 #define MYPORTB *((volatile byte *)0x25)
+#define MYDDRB *((volatile byte *)0x24)
 
 int main(void) {
-  DDRB = 32;
+  MYDDRB = 32;
 
   while (1) {
     MYPORTB = 32;
