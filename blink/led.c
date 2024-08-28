@@ -10,7 +10,7 @@ int main(void) {
 
   while (1) {
     PORTB ^= (1 << 5);
-    for (long i = 0; i < 3000000; i++) {
+    for (long i = 0; i < 1000000; i++) {
       PORTB |= (1 << 5);
     }
 
